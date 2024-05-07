@@ -1,0 +1,275 @@
+[
+    {
+        "id": "6553404a43c0a5de",
+        "type": "tab",
+        "label": "Set-Get Context Node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a16fcd95f861162a",
+        "type": "inject",
+        "z": "6553404a43c0a5de",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Machine Started",
+        "payloadType": "str",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "22b3381e673fda51"
+            ]
+        ]
+    },
+    {
+        "id": "3e7735f975384ba7",
+        "type": "inject",
+        "z": "6553404a43c0a5de",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "2ec263722622e245"
+            ]
+        ]
+    },
+    {
+        "id": "2ec263722622e245",
+        "type": "change",
+        "z": "6553404a43c0a5de",
+        "name": "Get Machine_Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Machine_Status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "7e8a7610c9edb3de"
+            ]
+        ]
+    },
+    {
+        "id": "7e8a7610c9edb3de",
+        "type": "get-context",
+        "z": "6553404a43c0a5de",
+        "name": "get flow/global context variable value",
+        "contextType": "flow",
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "69091edfd09c680d"
+            ]
+        ]
+    },
+    {
+        "id": "22b3381e673fda51",
+        "type": "change",
+        "z": "6553404a43c0a5de",
+        "name": "Machine_Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Machine_Status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "c2e7220e9ca33258"
+            ]
+        ]
+    },
+    {
+        "id": "c2e7220e9ca33258",
+        "type": "set-context",
+        "z": "6553404a43c0a5de",
+        "name": "set flow/global context",
+        "contextType": "flow",
+        "x": 780,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "69091edfd09c680d",
+        "type": "debug",
+        "z": "6553404a43c0a5de",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 830,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "91bfb3ae836864f8",
+        "type": "inject",
+        "z": "6553404a43c0a5de",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Machine Stopped",
+        "payloadType": "str",
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "bc0848b69a38e9a3"
+            ]
+        ]
+    },
+    {
+        "id": "bc0848b69a38e9a3",
+        "type": "change",
+        "z": "6553404a43c0a5de",
+        "name": "Machine_Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Machine_Status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "c2e7220e9ca33258"
+            ]
+        ]
+    },
+    {
+        "id": "e2515ea390ca87b8",
+        "type": "inject",
+        "z": "6553404a43c0a5de",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Machine Trip",
+        "payloadType": "str",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "9a782f48ebe1116c"
+            ]
+        ]
+    },
+    {
+        "id": "9a782f48ebe1116c",
+        "type": "change",
+        "z": "6553404a43c0a5de",
+        "name": "Machine_Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Machine_Status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "c2e7220e9ca33258"
+            ]
+        ]
+    }
+]
