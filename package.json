@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-context-set-get",
+  "version": "1.0.0",
+  "description": "Node-RED nodes for setting and getting context variables",
+  "keywords": [
+    "node-red",
+    "context",
+    "set",
+    "get"
+  ],
+  "author": {
+    "name": "Harshad Joshi",
+    "github": "hj91"
+  },
+  "license": "GPL-3.0",
+  "node-red": {
+    "nodes": {
+      "set-context": "set-context.js",
+      "get-context": "get-context.js"
+    }
+  }
+}
+
