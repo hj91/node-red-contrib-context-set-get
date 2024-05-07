@@ -1,0 +1,66 @@
+<!-- get-context.html -->
+
+<!--
+
+Copyright 2024 Bufferstack.IO Analytics Technology LLP, Pune.
+
+Licensed under the GNU General Public License, Version 3.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.gnu.org/licenses/gpl-3.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+
+<script type="text/javascript">
+  RED.nodes.registerType('get-context', {
+    category: 'Bufferstack.IO',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: '' },
+      contextType: { value: 'flow' }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'font-awesome/fa-flag',
+    label: function () {
+      return this.name || 'get-context';
+    },
+    oneditprepare: function () {
+      var contextType = $('#node-input-contextType');
+      contextType.change(function () {
+        if (contextType.val() === 'global') {
+          // Additional configurations for global context
+        } else {
+          // Additional configurations for flow context
+        }
+      });
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="get-context">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-contextType"><i class="icon-tag"></i> Context Type</label>
+    <select id="node-input-contextType">
+      <option value="flow">Flow</option>
+      <option value="global">Global</option>
+    </select>
+  </div>
+</script>
+
+<script type="text/html" data-help-name="get-context">
+  <p>Retrieves a context variable based on the input message topic. The context variable can be either flow or global depending on the configuration.</p>
+</script>
+
